@@ -168,50 +168,7 @@
 
 
 
-/* =========================================================
-   AJUSTES RESPONSIVOS PARA MÓVILES (Evita el scroll de toda la pantalla)
-   ========================================================= */
-@media screen and (max-width: 768px) {
-    /* 1. Ajustamos los márgenes generales para ganar espacio en pantallas chicas */
-    body {
-        padding: 8px !important;
-    }
-    
-    .panel {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 15px !important;
-        margin-bottom: 15px !important;
-    }
 
-    /* 2. LA MAGIA: Contenedores con scroll interno independiente */
-    /* Esto evita que una tabla o el PDF ancho empuje toda la aplicación hacia los lados */
-    .table-responsive, .preview-wrapper {
-        width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch; /* Desplazamiento ultra suave y táctil en móviles */
-        display: block !important;
-    }
-
-    /* 3. Aseguramos que la vista previa del PDF no rompa el ancho de la pantalla principal */
-    #pdf-container {
-        min-width: 650px; /* Mantiene la proporción de hoja tamaño carta... */
-        margin: 0 auto;   /* ...pero viviendo dentro de un contenedor que se desliza suavemente */
-    }
-
-    /* 4. Los botones se apilan ordenadamente si no caben en una sola fila */
-    .actions-wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-    }
-    
-    .actions-wrapper .btn {
-        width: 100% !important;
-    }
-}
 
 
 
