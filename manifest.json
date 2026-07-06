@@ -1,0 +1,21 @@
+{
+  "name": "Generador de Comprobantes | Refri Lavadoras",
+  "short_name": "Comprobantes",
+  "description": "Sistema de facturación interna para Refri Lavadoras San Andrés",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f1f5f9",
+  "theme_color": "#4f46e5",
+  "icons": [
+    {
+      "src": "icono.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icono.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
