@@ -850,11 +850,12 @@
         document.getElementById('btn-descargar').disabled = false;
     }
 
-    function descargarPDF() {
+
+function descargarPDF() {
         const elemento = document.getElementById('pdf-container');
         const numDoc = document.getElementById('lbl-numero').innerText;
         
-        // Nombre inteligente sin tildes ni espacios para evitar errores de archivo
+        // 1. Nombre inteligente sin tildes ni espacios para evitar errores en Google Drive
         const clienteTexto = document.getElementById('lbl-cli-nombre').innerText.trim() || 'Consumidor_Final';
         const nombreLimpio = clienteTexto
             .normalize("NFD")
@@ -863,17 +864,28 @@
         const fechaHoy = new Date().toISOString().slice(0, 10);
         const nombreArchivo = `${nombreLimpio}_${numDoc}_${fechaHoy}.pdf`;
 
-        // Opciones con windowWidth para obligar a html2canvas a renderizar modo escritorio aun desde móvil
+        // 2. OPCIONES BLINDADAS CONTRA DESPLAZAMIENTO Y CORTES
         const opciones = {
             margin:       0,
             filename:     nombreArchivo,
             image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  { scale: 2, useCORS: true, letterRendering: true, windowWidth: 1200 },
+            html2canvas:  { 
+                scale: 2, 
+                useCORS: true, 
+                letterRendering: true,
+                scrollX: 0,         // <-- MAGIA 1: Obliga a tomar la foto desde el borde izquierdo real
+                scrollY: 0          // <-- MAGIA 2: Ignora si bajaste la pantalla, evitando que el PDF salga movido
+            },
             jsPDF:        { unit: 'mm', format: 'letter', orientation: 'portrait' }
         };
 
+        // 3. Generamos y guardamos el PDF
         html2pdf().set(opciones).from(elemento).save();
     }
+
+
+
+    
 
     function limpiarFormulario() {
         document.getElementById('cli-nombre').value = "Consumidor Final";
