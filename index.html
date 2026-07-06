@@ -393,9 +393,13 @@
     text-align: left;
 }
 
-/* Clase específica para enviar al Receptor al extremo derecho */
+
+
+        /* Bloque del Receptor: En la mitad derecha de la hoja, pero con texto alineado a la izquierda */
 .pdf-entity-box.receptor-box {
-    text-align: right; 
+    text-align: left;       /* Alinea las letras a la izquierda para una lectura natural */
+    padding-left: 40px;     /* Crea un "canal de aire" elegante para que no se pegue al Emisor */
+    box-sizing: border-box; /* Evita que el relleno empuje o deforme la columna */
 }
 
 .pdf-notes {
