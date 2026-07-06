@@ -451,40 +451,48 @@
         <div id="pdf-container">
             <div class="status-stamp">RLS</div>
             
-            <!-- ENCABEZADO REESTRUCTURADO EN TABLA INVISIBLE PARA EVITAR COLAPSO EN PDF -->
-            <table class="pdf-header" style="width: 100%; border-collapse: collapse; border: none; margin-bottom: 20px;">
+         <!-- ENCABEZADO: BLINDADO Y ALINEADO AL EXTREMO DERECHO -->
+            <table class="pdf-header" style="width: 100%; border-collapse: collapse; border: none; margin-bottom: 25px;">
                 <tr>
-                    <td class="pdf-title-section" style="width: 60%; vertical-align: top; border: none; text-align: left; padding: 0;">
-                        <h1 class="pdf-title"><span class="colord">Refri</span> Lavadoras <br> <span class="Legend">San Andres </span></h1>
-                        <p><strong>NIT:</strong> 10662299-4</p>
-                        <p><strong>Dirección:</strong> Parramos Chimaltenango, Guatemala</p>
-                        <p><strong>Teléfono:</strong> +502 4830-1845</p>
+                    <!-- Columna Izquierda: Emisor / Logo -->
+                    <td class="pdf-title-section" style="width: 55%; vertical-align: top; border: none; text-align: left; padding: 0;">
+                        <h1 class="pdf-title" style="margin-top: 0;"><span class="colord">Refri</span> Lavadoras <br> <span class="Legend">San Andres </span></h1>
+                        <p style="margin: 3px 0;"><strong>NIT:</strong> 10662299-4</p>
+                        <p style="margin: 3px 0;"><strong>Dirección:</strong> Parramos Chimaltenango, Guatemala</p>
+                        <p style="margin: 3px 0;"><strong>Teléfono:</strong> +502 4830-1845</p>
                     </td>
-                    <td class="pdf-doc-info" style="width: 40%; vertical-align: top; border: none; text-align: right; padding: 0;">
-                        <div class="doc-type">Comprobante Interno</div>
-                        <p><strong>Serie:</strong> <span id="lbl-serie">---</span></p>
-                        <p><strong>Número:</strong> <span id="lbl-numero">---</span></p>
-                        <p><strong>Fecha:</strong> <span id="lbl-fecha">---</span></p>
-                        <div class="auth-code" id="lbl-uuid">---</div>
+                    <!-- Columna Derecha: Recuadro del Comprobante (Forzado al extremo derecho) -->
+                    <td class="pdf-doc-info" style="width: 45%; vertical-align: top; border: none; text-align: right; padding: 0;">
+                        <div style="background-color: #f8fafc; padding: 12px; border-radius: 6px; border: 1px solid #e2e8f0; text-align: right; width: 100%; box-sizing: border-box; float: right;">
+                            <div class="doc-type" style="font-size: 16px; font-weight: bold; color: #1e3a8a; margin-bottom: 6px;">COMPROBANTE INTERNO</div>
+                            <p style="margin: 3px 0; font-size: 13px;"><strong>Serie:</strong> <span id="lbl-serie">---</span></p>
+                            <p style="margin: 3px 0; font-size: 13px;"><strong>Número:</strong> <span id="lbl-numero">---</span></p>
+                            <p style="margin: 3px 0; font-size: 13px;"><strong>Fecha:</strong> <span id="lbl-fecha">---</span></p>
+                            <div class="auth-code" id="lbl-uuid" style="margin-top: 6px; font-size: 9px; color: #64748b; font-family: monospace;">---</div>
+                        </div>
                     </td>
                 </tr>
             </table>
 
-            <!-- SECCIÓN DE EMISOR Y RECEPTOR REESTRUCTURADA EN TABLA INVISIBLE -->
-            <table class="pdf-entities" style="width: 100%; border-collapse: collapse; border: none; margin-bottom: 20px;">
+            <!-- EMISOR Y RECEPTOR: SEPARADOS A LOS EXTREMOS DEL DOCUMENTO -->
+            <table class="pdf-entities" style="width: 100%; border-collapse: collapse; border: none; margin-bottom: 25px;">
                 <tr>
-                    <td class="pdf-entity-box" style="width: 50%; vertical-align: top; border: none; text-align: left; padding: 0; padding-right: 15px;">
-                        <h3>Emisor</h3>
-                        <p><strong>Técnico: Cristian Car</strong></p>
-                        <p>NIT: 10662299-4</p>
-                        <p>Parramos Chimaltenango, Guatemala</p>
+                    <!-- Columna Izquierda: Emisor -->
+                    <td class="pdf-entity-box" style="width: 48%; vertical-align: top; border: none; text-align: left; padding: 0;">
+                        <h3 style="margin: 0 0 5px 0; color: #0f172a; border-bottom: 2px solid #e2e8f0; padding-bottom: 3px;">Emisor</h3>
+                        <p style="margin: 2px 0;"><strong>Técnico: Cristian Car</strong></p>
+                        <p style="margin: 2px 0;">NIT: 10662299-4</p>
+                        <p style="margin: 2px 0;">Parramos Chimaltenango, Guatemala</p>
                     </td>
-                    <td class="pdf-entity-box" style="width: 50%; vertical-align: top; border: none; text-align: left; padding: 0; padding-left: 15px;">
-                        <h3>Receptor</h3>
-                        <p><strong id="lbl-cli-nombre">---</strong></p>
-                        <p>NIT: <span id="lbl-cli-nit">---</span></p>
-                        <p>Dir: <span id="lbl-cli-dir">---</span></p>
-                        <p>Tel: <span id="lbl-cli-tel">---</span></p>
+                    <!-- Columna Central: Espacio en blanco invisible para empujar el receptor -->
+                    <td style="width: 12%; border: none;"></td>
+                    <!-- Columna Derecha: Receptor (Empujado al margen derecho) -->
+                    <td class="pdf-entity-box" style="width: 40%; vertical-align: top; border: none; text-align: right; padding: 0;">
+                        <h3 style="margin: 0 0 5px 0; color: #0f172a; border-bottom: 2px solid #e2e8f0; padding-bottom: 3px;">Receptor</h3>
+                        <p style="margin: 2px 0;"><strong id="lbl-cli-nombre">---</strong></p>
+                        <p style="margin: 2px 0;">NIT: <span id="lbl-cli-nit">---</span></p>
+                        <p style="margin: 2px 0;">Dir: <span id="lbl-cli-dir">---</span></p>
+                        <p style="margin: 2px 0;">Tel: <span id="lbl-cli-tel">---</span></p>
                     </td>
                 </tr>
             </table>
