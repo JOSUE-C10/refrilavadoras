@@ -861,7 +861,12 @@ function descargarPDF() {
             .normalize("NFD")
             .replace(/[\u0300-\u036f]/g, "")
             .replace(/[^a-zA-Z0-9]/g, '_');
-        const fechaHoy = new Date().toISOString().slice(0, 10);
+        // --- NUEVO FORMATO DE FECHA: Día-Mes-Año (DD-MM-AAAA) ---
+        const hoy = new Date();
+        const dia = String(hoy.getDate()).padStart(2, '0');
+        const mes = String(hoy.getMonth() + 1).padStart(2, '0'); // Se suma 1 porque en JS los meses empiezan desde 0
+        const anio = hoy.getFullYear();
+        const fechaHoy = `${dia}-${mes}-${anio}`;
         const nombreArchivo = `${nombreLimpio}_${numDoc}_${fechaHoy}.pdf`;
 
         // 2. OPCIONES BLINDADAS CONTRA DESPLAZAMIENTO Y CORTES
