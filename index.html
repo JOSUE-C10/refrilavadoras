@@ -451,40 +451,45 @@
         <div id="pdf-container">
             <div class="status-stamp">RLS</div>
             
-            <div class="pdf-header">
-                <div class="pdf-title-section">
-                    <h1 class="pdf-title"><span class="colord">Refri</span> Lavadoras <br> <span class="Legend">San Andres </span></h1>
-                    
+            <!-- ENCABEZADO REESTRUCTURADO EN TABLA INVISIBLE PARA EVITAR COLAPSO EN PDF -->
+            <table class="pdf-header" style="width: 100%; border-collapse: collapse; border: none; margin-bottom: 20px;">
+                <tr>
+                    <td class="pdf-title-section" style="width: 60%; vertical-align: top; border: none; text-align: left; padding: 0;">
+                        <h1 class="pdf-title"><span class="colord">Refri</span> Lavadoras <br> <span class="Legend">San Andres </span></h1>
+                        <p><strong>NIT:</strong> 10662299-4</p>
+                        <p><strong>Dirección:</strong> Parramos Chimaltenango, Guatemala</p>
+                        <p><strong>Teléfono:</strong> +502 4830-1845</p>
+                    </td>
+                    <td class="pdf-doc-info" style="width: 40%; vertical-align: top; border: none; text-align: right; padding: 0;">
+                        <div class="doc-type">Comprobante Interno</div>
+                        <p><strong>Serie:</strong> <span id="lbl-serie">---</span></p>
+                        <p><strong>Número:</strong> <span id="lbl-numero">---</span></p>
+                        <p><strong>Fecha:</strong> <span id="lbl-fecha">---</span></p>
+                        <div class="auth-code" id="lbl-uuid">---</div>
+                    </td>
+                </tr>
+            </table>
 
-                    <p><strong>NIT:</strong> 10662299-4</p>
-                    <p><strong>Dirección:</strong> Parramos Chimaltenango, Guatemala</p>
-                    <p><strong>Teléfono:</strong> +502 4830-1845</p>
-                </div>
-                <div class="pdf-doc-info">
-                    <div class="doc-type">Comprobante Interno</div>
-                    <p><strong>Serie:</strong> <span id="lbl-serie">---</span></p>
-                    <p><strong>Número:</strong> <span id="lbl-numero">---</span></p>
-                    <p><strong>Fecha:</strong> <span id="lbl-fecha">---</span></p>
-                    <div class="auth-code" id="lbl-uuid">---</div>
-                </div>
-            </div>
+            <!-- SECCIÓN DE EMISOR Y RECEPTOR REESTRUCTURADA EN TABLA INVISIBLE -->
+            <table class="pdf-entities" style="width: 100%; border-collapse: collapse; border: none; margin-bottom: 20px;">
+                <tr>
+                    <td class="pdf-entity-box" style="width: 50%; vertical-align: top; border: none; text-align: left; padding: 0; padding-right: 15px;">
+                        <h3>Emisor</h3>
+                        <p><strong>Técnico: Cristian Car</strong></p>
+                        <p>NIT: 10662299-4</p>
+                        <p>Parramos Chimaltenango, Guatemala</p>
+                    </td>
+                    <td class="pdf-entity-box" style="width: 50%; vertical-align: top; border: none; text-align: left; padding: 0; padding-left: 15px;">
+                        <h3>Receptor</h3>
+                        <p><strong id="lbl-cli-nombre">---</strong></p>
+                        <p>NIT: <span id="lbl-cli-nit">---</span></p>
+                        <p>Dir: <span id="lbl-cli-dir">---</span></p>
+                        <p>Tel: <span id="lbl-cli-tel">---</span></p>
+                    </td>
+                </tr>
+            </table>
 
-            <div class="pdf-entities">
-                <div class="pdf-entity-box">
-                    <h3>Emisor</h3>
-                    <p><strong>Técnico: Cristian Car</strong></p>
-                    <p>NIT: 10662299-4</p>
-                    <p>Parramos Chimaltenango, Guatemala</p>
-                </div>
-                <div class="pdf-entity-box">
-                    <h3>Receptor</h3>
-                    <p><strong id="lbl-cli-nombre">---</strong></p>
-                    <p>NIT: <span id="lbl-cli-nit">---</span></p>
-                    <p>Dir: <span id="lbl-cli-dir">---</span></p>
-                    <p>Tel: <span id="lbl-cli-tel">---</span></p>
-                </div>
-            </div>
-                        <table class="pdf-table">
+            <table class="pdf-table">
                 <thead>
                     <tr>
                         <th width="10%" style="text-align: center;">Cant.</th>
@@ -497,31 +502,30 @@
                     </tbody>
             </table>
 
-
-<div class="pdf-bottom-section">
-                
-                <div class="pdf-notes" id="pdf-notes-container" style="width: 55%;">
-                    <h4>Observaciones</h4>
-                    <p id="lbl-notas">---</p>
-                </div>
-
-                <div class="pdf-summary" style="width: 40%;">
-                    <table>
-                        <tr>
-                            <th>Subtotal</th>
-                            <td>Q <span id="lbl-subtotal">0.00</span></td>
-                        </tr>
-                        <tr>
-                            <th>Descuento</th>
-                            <td>Q <span id="lbl-descuento">0.00</span></td>
-                        </tr>
-                        <tr>
-                            <th>Total a Pagar</th>
-                            <td>Q <span id="lbl-total">0.00</span></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
+            <table class="pdf-bottom-section" style="width: 100%; border-collapse: collapse; border: none; margin-top: 20px;">
+                <tr>
+                    <td class="pdf-notes" id="pdf-notes-container" style="width: 55%; vertical-align: top; border: none; text-align: left; padding: 0;">
+                        <h4>Observaciones</h4>
+                        <p id="lbl-notas">---</p>
+                    </td>
+                    <td class="pdf-summary" style="width: 45%; vertical-align: top; border: none; padding: 0; padding-left: 20px;">
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <tr>
+                                <th style="text-align: left; padding: 4px 0;">Subtotal</th>
+                                <td style="text-align: right; padding: 4px 0;">Q <span id="lbl-subtotal">0.00</span></td>
+                            </tr>
+                            <tr>
+                                <th style="text-align: left; padding: 4px 0;">Descuento</th>
+                                <td style="text-align: right; padding: 4px 0;">Q <span id="lbl-descuento">0.00</span></td>
+                            </tr>
+                            <tr>
+                                <th style="text-align: left; padding: 6px 0; border-top: 1px solid #cbd5e1; font-size: 1.1em;">Total a Pagar</th>
+                                <td style="text-align: right; padding: 6px 0; border-top: 1px solid #cbd5e1; font-weight: bold; font-size: 1.1em;">Q <span id="lbl-total">0.00</span></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
 
             <div style="text-align: center; margin-top: 30px; margin-bottom: 10px;">
                 <canvas id="qr-whatsapp"></canvas>
